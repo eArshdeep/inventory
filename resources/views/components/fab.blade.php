@@ -12,7 +12,7 @@
     </li>
 
     <li>
-      <a class="btn-floating green">
+      <a class="btn-floating green" href="/collection/create">
         <i class="material-icons">create_new_folder</i>
       </a>
     </li>

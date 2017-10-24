@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('scenes.home');
-});
+Route::get('/', 'CollectionController@index');
+
+Route::resource('collection', 'CollectionController', 
+    ['except' => [ 'index' ]]
+);
