@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {{--  Materialize  --}}
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  media="screen,projection"/>
+        {{-- Favicon --}}
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
         {{--  Title  --}}
         <title>{{ config('app.name', 'Inventory') }}</title>
     </head>
