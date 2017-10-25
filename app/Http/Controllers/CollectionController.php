@@ -36,7 +36,20 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate
+        $this->validate($request, [
+          'collection_name' => 'required',
+          'collection_description' => 'required'
+        ]);
+
+        // Store
+        $collection = new Collection;
+        $collection->name = $request->input('collection_name');
+        $collection->description = $request->input('collection_description');
+        $collection->save();
+
+        // Redirect
+        return redirect('/')->with('success', 'Collection added successfully');
     }
 
     /**
