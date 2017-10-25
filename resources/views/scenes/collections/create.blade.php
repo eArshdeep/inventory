@@ -9,12 +9,12 @@
     {{ csrf_field() }}
 
     <div class="input-field card-panel">
-      <input name="collection_name" id="collection_name" type="text" class="validate">
+      <input name="collection_name" value="{{ old('collection_name') }}" id="collection_name" type="text" class="validate">
       <label for="collection_name">Collection Name</label>
     </div>
 
     <div class="input-field card-panel">
-      <textarea name="collection_description" id="collection_description" class="materialize-textarea" data-length="15000"></textarea>
+      <textarea name="collection_description" id="collection_description" class="materialize-textarea" data-length="15000">{{ old('collection_description') }}</textarea>
       <label for="collection_description">Collection Description</label>
     </div>
 
