@@ -60,7 +60,8 @@ class CollectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $collection = Collection::find($id);
+        return view('scenes.collections.show')->with('collection', $collection);
     }
 
     /**
@@ -94,6 +95,8 @@ class CollectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $collection = Collection::find($id);
+        $collection->delete();
+        return redirect('/')->with('success', 'Collection removed successfully');
     }
 }

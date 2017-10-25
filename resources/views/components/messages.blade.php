@@ -1,6 +1,6 @@
 @if ( session('success') )
 
-	<div class="card-panel teal accent-2 black-text">
+	<div class="card-panel cyan white-text">
 
 		{{ session('success') }}
 
