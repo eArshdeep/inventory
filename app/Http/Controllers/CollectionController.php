@@ -25,7 +25,11 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view('scenes.collections.create');
+        $context = [
+          'show_back' => true,
+          'back_url' => '/'
+        ];
+        return view('scenes.collections.create')->with('context', $context);
     }
 
     /**
@@ -60,8 +64,14 @@ class CollectionController extends Controller
      */
     public function show($id)
     {
+        $context = [
+          'show_back' => true,
+          'back_url' => '/'
+        ];
         $collection = Collection::find($id);
-        return view('scenes.collections.show')->with('collection', $collection);
+        return view('scenes.collections.show')
+          ->with('collection', $collection)
+          ->with('context', $context);
     }
 
     /**
@@ -72,8 +82,14 @@ class CollectionController extends Controller
      */
     public function edit($id)
     {
+        $context = [
+          'show_back' => true,
+          'back_url' => '/collection/' . $id
+        ];
         $collection = Collection::find($id);
-        return view('scenes.collections.edit')->with('collection', $collection);
+        return view('scenes.collections.edit')
+          ->with('collection', $collection)
+          ->with('context', $context);
     }
 
     /**
