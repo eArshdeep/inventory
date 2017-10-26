@@ -3,7 +3,7 @@
 @section('body')
 
   <div class="card-panel center-align">
-    <p id="collection-label" class="grey-text">collection</p>
+    <p id="name-label" class="grey-text">collection</p>
     <h1>{{ $collection->name }}</h1>
   </div>
 
@@ -12,11 +12,18 @@
     {{ $collection->description }}
   </div>
 
-  <form action="/collection/{{$collection->id}}" method="post">
-    <input name="_method" type="hidden" value="delete">
-    <input class="btn red lighten-2" type="submit" value="Delete Collection">
-    {{ csrf_field() }}
-  </form>
+  <div class="row">
+    <div class="col s12 m6">
+      <a href="/collection/{{$collection->id}}/edit" class="btn">Modify</a>
+    </div>
+    <div class="col s12 m6">
+      <form action="/collection/{{$collection->id}}" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <input class="btn red lighten-2" type="submit" value="Delete Collection">
+        {{ csrf_field() }}
+      </form>
+    </div>
+  </div>
 
 @endsection
 
@@ -27,12 +34,13 @@
     margin: 0 !important;
   }
 
-  #collection-label {
+  #name-label {
     margin: 5px;
   }
 
-  input[type=submit] {
-    width: 100%;
+  .btn {
+    width: 100% !important;
+    margin: 5px 0;
   }
 
 </style>

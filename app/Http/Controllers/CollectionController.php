@@ -72,7 +72,8 @@ class CollectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $collection = Collection::find($id);
+        return view('scenes.collections.edit')->with('collection', $collection);
     }
 
     /**
@@ -84,7 +85,20 @@ class CollectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate
+        $this->validate($request, [
+          'collection_name' => 'required',
+          'collection_description' => 'required'
+        ]);
+
+        // Update
+        $collection = Collection::find($id);
+        $collection->name = $request->input('collection_name');
+        $collection->description = $request->input('collection_description');
+        $collection->save();
+
+        // Redirect
+        return redirect()->route('collection.show', ['id' => $id])->with('success', 'Collection updated successfully.');
     }
 
     /**
