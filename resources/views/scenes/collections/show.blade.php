@@ -19,7 +19,7 @@
     <div class="col s12 m6">
       <form action="/collection/{{$collection->id}}" method="post">
         <input name="_method" type="hidden" value="delete">
-        <input class="btn red lighten-2" type="submit" value="Delete Collection">
+        <input class="btn red lighten-2" type="submit" value="Delete Collection" id="btnDeleteCollection">
         {{ csrf_field() }}
       </form>
     </div>
@@ -44,3 +44,8 @@
   }
 
 </style>
+
+@section('additional-scripts')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="{{ asset('js/confirmCollectionDelete.js') }}"></script>
+@endsection
