@@ -16,9 +16,9 @@
         <i class="material-icons">create_new_folder</i>
       </a>
     </li>
-    
+
     <li>
-      <a class="btn-floating blue">
+      <a class="btn-floating blue" href="/item/create">
         <i class="material-icons">add</i>
       </a>
     </li>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Collection;
+use App\Item;
 
 class ItemController extends Controller
 {
@@ -23,7 +25,19 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        // set context
+        $context = [
+          'show_back' => true,
+          'back_url' => '/'
+        ];
+
+        // get all collections
+        $collections = Collection::all();
+
+        // return view with data
+        return view('scenes.items.create')
+          ->with('context', $context)
+          ->with('collections', $collections);
     }
 
     /**
@@ -34,7 +48,22 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate
+        $this->validate($request, [
+          'item_name' => 'required',
+          'item_description' => 'required',
+          'item_parent_collection_id' => 'required'
+        ]);
+
+        // Store
+        $item = new Item;
+        $item->name = $request->input('item_name');
+        $item->description = $request->input('item_description');
+        $item->collection_id = $request->input('item_parent_collection_id');
+        $item->save();
+
+        // Redirect
+        return redirect('/')->with('success', 'Item created successfully');
     }
 
     /**
