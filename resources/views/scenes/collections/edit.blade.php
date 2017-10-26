@@ -20,7 +20,14 @@
       <label for="collection_description">Collection Description</label>
     </div>
 
-    <input class="btn" type="submit" value="Update">
+    <div class="row">
+      <div class="col s12 m6">
+        <a class="btn grey darken-1" href="/collection/{{$collection->id}}">Nevermind</a>
+      </div>
+      <div class="col s12 m6">
+        <input class="btn" type="submit" value="Update">
+      </div>
+    </div>
 
   </form>
 
@@ -36,8 +43,9 @@
     margin: 25px;
   }
 
-  input[type=submit] {
+  .btn {
     width: 100%;
+    margin: 5px 0;
   }
 
 </style>
