@@ -13,6 +13,8 @@
 
 Route::get('/', 'CollectionController@index');
 
-Route::resource('collection', 'CollectionController', 
+Route::resource('collection', 'CollectionController',
     ['except' => [ 'index' ]]
 );
+
+Route::resource('item', 'ItemController');
