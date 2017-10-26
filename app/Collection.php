@@ -12,4 +12,10 @@ class Collection extends Model
     * @var string
     */
     protected $table = 'collections';
+
+    // declare relationship with items
+    public function items()
+    {
+      return $this->hasMany('App\Item');
+    }
 }
