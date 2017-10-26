@@ -19,13 +19,14 @@
         <div id="app">
             @include('components.navbar')
             <div class="container">
-                @include('components.messages')
+                @include('components.errors')
                 @yield('body')
             </div>
         </div>
         {{--  Import jQuery and Materialize.js --}}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        @include('components.messages')
         @yield('additional-scripts')
     </body>
 </html>
