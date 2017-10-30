@@ -12,6 +12,20 @@
     {{ $collection->description }}
   </div>
 
+  <div class="card-panel center-align item-header">
+    <h2>Items</h2>
+  </div>
+
+  @if( count($collection->items) > 0 )
+    <div class="row">
+      @foreach($collection->items as $item)
+        @include('components.item-cards.image')
+      @endforeach
+    </div>
+  @else
+    <p class="flow-text center-align">No items to show. Lets add some!</p>
+  @endif
+
   <div class="row">
     <div class="col s12 m6">
       <a href="/collection/{{$collection->id}}/edit" class="btn">Modify</a>
@@ -29,7 +43,7 @@
 
 <style>
 
-  h1 {
+  h1, h2 {
     font-size: 28px !important;
     margin: 0 !important;
   }
@@ -41,6 +55,16 @@
   .btn {
     width: 100% !important;
     margin: 5px 0;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .item-header {
+    border: 2px solid #009588;
+    font-family: sans-serif;
   }
 
 </style>
