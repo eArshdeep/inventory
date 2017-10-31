@@ -5,7 +5,7 @@
       <p>{{$item->description}}</p>
     </div>
     <div class="card-action">
-      <a class="btn cyan" href="#">More</a>
+      <a class="btn cyan" href="/item/{{$item->id}}">More</a>
     </div>
   </div>
 </div>

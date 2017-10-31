@@ -1,4 +1,4 @@
-$('#btnDeleteCollection').on('click',function(e){
+$('#btnDelete').on('click',function(e){
     e.preventDefault();
     var form = $(this).parents('form');
     swal({
@@ -9,8 +9,6 @@ $('#btnDeleteCollection').on('click',function(e){
     }).then((confirmation)=>{
       if(confirmation){
         form.submit();
-      } else {
-        swal('Your collection is safe!');
       }
     });
 });

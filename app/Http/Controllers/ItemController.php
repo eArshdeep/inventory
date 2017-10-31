@@ -74,7 +74,19 @@ class ItemController extends Controller
      */
     public function show($id)
     {
+        // retrieve item
+        $item = Item::find($id);
+
+        // set context
+        $context = [
+          'show_back' => true,
+          'back_url' => '/collection/' . $item->collection_id
+        ];
+
         //
+        return view('scenes.items.show')
+          ->with('context', $context)
+          ->with('item', $item);
     }
 
     /**
@@ -85,7 +97,23 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
+        // set context
+        $context = [
+          'show_back' => true,
+          'back_url' => '/item/' . $id
+        ];
+
+        // retrieve item
+        $item = Item::find($id);
+
+        // retrieve collections
+        $collections = Collection::all();
+
         //
+        return view('scenes.items.edit')
+          ->with('context', $context)
+          ->with('item', $item)
+          ->with('collections', $collections);
     }
 
     /**
@@ -97,7 +125,22 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate
+        $this->validate($request, [
+          'name' => 'required',
+          'description' => 'required',
+          'parent_collection' => 'required'
+        ]);
+
+        // Update
+        $item = Item::find($id);
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->collection_id = $request->input('parent_collection');
+        $item->save();
+
+        // Redirect
+        return redirect()->route('item.show', ['id' => $id])->with('success', 'Item updated successfully.');
     }
 
     /**
@@ -108,6 +151,10 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        /* generate redirect url (redirect to parent collection) */
+        $url = 'collection/' . $item->collection_id;
+        $item->delete();
+        return redirect($url)->with('success', 'Item removed successfully');
     }
 }
