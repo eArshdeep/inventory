@@ -53,7 +53,7 @@ class CollectionController extends Controller
         $collection->save();
 
         // Redirect
-        return redirect('/')->with('success', 'Collection added successfully');
+        return redirect()->route('collection.show', ['id' => $collection->id])->with('success', 'Collection added successfully.');
     }
 
     /**
