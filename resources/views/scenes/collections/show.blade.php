@@ -30,9 +30,11 @@
   @endif
 
   <div class="row">
+
     <div class="col s12 m6">
       <a href="/collection/{{$collection->id}}/edit" class="btn">Modify</a>
     </div>
+
     <div class="col s12 m6">
       <form action="/collection/{{$collection->id}}" method="post">
         <input name="_method" type="hidden" value="delete">
@@ -40,6 +42,21 @@
         {{ csrf_field() }}
       </form>
     </div>
+
+    <div class="col s12 m6">
+      <form action="/collection/{{$collection->id}}/qr/create" method="post">
+        {{ csrf_field() }}
+        <input type="submit" value="Generate New QR Label" class="btn white black-text">
+      </form>
+    </div>
+
+    <div class="col s12 m6">
+      <form action="/collection/{{$collection->id}}/qr" method="post">
+        {{ csrf_field() }}
+        <input type="submit" value="View Current QR Label" class="btn white black-text">
+      </form>
+    </div>
+
   </div>
 
 @endsection

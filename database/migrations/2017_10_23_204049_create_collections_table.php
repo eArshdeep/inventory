@@ -15,6 +15,7 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('qr_code', 13)->nullable();
             $table->string('name');
             $table->text('description');
             $table->timestamps();

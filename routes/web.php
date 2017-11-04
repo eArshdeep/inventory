@@ -18,3 +18,6 @@ Route::resource('collection', 'CollectionController',
 );
 
 Route::resource('item', 'ItemController');
+
+Route::post('collection/{id}/qr', 'QrController@show');
+Route::post('collection/{id}/qr/create', 'QrController@create');
