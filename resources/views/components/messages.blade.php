@@ -12,7 +12,7 @@
 
 	<script type="text/javascript">
     $( document ).ready(function() {
-      Materialize.toast('{{ session(‘error’) }}', 8000, 'red accent-2');
+      Materialize.toast('{{ session('error') }}', 8000, 'red accent-2');
     });
 	</script>
 

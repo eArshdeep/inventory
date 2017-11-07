@@ -21,3 +21,5 @@ Route::resource('item', 'ItemController');
 
 Route::post('collection/{id}/qr', 'QrController@show');
 Route::post('collection/{id}/qr/create', 'QrController@create');
+Route::post('scan', 'QrController@verify');
+Route::get('scan', 'QrController@scan')->name('scan');

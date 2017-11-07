@@ -6,7 +6,7 @@
 
   <ul>
     <li>
-      <a class="btn-floating yellow darken-1">
+      <a class="btn-floating yellow darken-1" href="/scan">
         <i class="material-icons">camera</i>
       </a>
     </li>
